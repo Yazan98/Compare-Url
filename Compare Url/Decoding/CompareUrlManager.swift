@@ -18,6 +18,10 @@ public class CompareUrlManager {
         return self.assignEncodedToDecodedKeys(url: url)
     }
     
+    func compareUrl(firstUrl: String, secondUrl: String) -> [String] {
+        return []
+    }
+    
     private func assignEncodedToDecodedKeys(url: String) -> String {
         var decodedString = url
         decodedString = decodedString.replacingOccurrences(of: CompareEncodeValue.Space.rawValue, with: CompareDecodedValue.Space.rawValue)

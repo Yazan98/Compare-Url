@@ -13,46 +13,89 @@ struct ContentView: View {
     @State private var urlInput: String = ""
     @State private var urlResult: String = ""
     @State private var errorMessage: String = ""
+    
+    @State private var firstUrlInput: String = ""
+    @State private var secondUrlInput: String = ""
+    
+    @State private var diffList: [String] = []
+
     private let manager: CompareUrlManager = CompareUrlManager()
     
     var body: some View {
         VStack {
-            HStack {
-                Text("Url Encoder, Decoder")
-                Spacer()
-            }
-            .padding()
-            
-            HStack {
-                TextField("Enter The Url", text: $urlInput)
-                    .lineLimit(1)
-                Button(action: {
-                    if urlInput.isEmpty {
-                        errorMessage = "Target Url Can't Be Empty"
-                    } else {
-                        urlResult = manager.encodeUrl(url: urlInput)
-                        isAlertEnabled = true
-                    }
-                }) {
-                    Text("Encode").padding()
+            Group {
+                HStack {
+                    Text("Url Encoder, Decoder")
+                    Spacer()
                 }
-                Button(action: {
-                    if urlInput.isEmpty {
-                        errorMessage = "Target Url Can't Be Empty"
-                    } else {
-                        urlResult = manager.decodeUrl(url: urlInput)
-                        isAlertEnabled = true
+                .padding()
+                
+                HStack {
+                    TextField("Enter The Url", text: $urlInput)
+                        .lineLimit(1)
+                    Button(action: {
+                        if urlInput.isEmpty {
+                            errorMessage = "Target Url Can't Be Empty"
+                        } else {
+                            urlResult = manager.encodeUrl(url: urlInput)
+                            isAlertEnabled = true
+                        }
+                    }) {
+                        Text("Encode").padding()
                     }
-                }) {
-                    Text("Decode").padding()
+                    Button(action: {
+                        if urlInput.isEmpty {
+                            errorMessage = "Target Url Can't Be Empty"
+                        } else {
+                            urlResult = manager.decodeUrl(url: urlInput)
+                            isAlertEnabled = true
+                        }
+                    }) {
+                        Text("Decode").padding()
+                    }
+                }
+                .padding()
+                
+                HStack {
+                    Text("\(errorMessage)").foregroundColor(.red)
+                    Spacer()
+                }
+                .padding()
+            }
+            
+            
+            Group {
+                HStack {
+                    Text("Url Compare")
+                    Spacer()
+                }
+                .padding()
+                
+                HStack {
+                    TextField("Enter First Url", text: $firstUrlInput)
+                        .lineLimit(1)
+                        .padding()
+                    
+                    TextField("Enter Second Url", text: $secondUrlInput)
+                        .lineLimit(1)
+                        .padding()
+                    
+                    Button(action: {
+                        if firstUrlInput.isEmpty == false && secondUrlInput.isEmpty == false {
+                            diffList = manager.compareUrl(firstUrl: firstUrlInput, secondUrl: secondUrlInput)
+                        }
+                    }) {
+                        Text("Compare").padding()
+                    }
                 }
             }
-            .padding()
             
-            HStack {
-                Text("\(errorMessage)").foregroundColor(.red)
-                Spacer()
+            LazyVStack() {
+                ForEach(diffList, id: \.self) { item in
+                    Text(item)
+                }
             }
+            .frame(width: .infinity, height: 350)
             .padding()
             
             Spacer()
