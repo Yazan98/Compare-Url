@@ -16,6 +16,7 @@ struct ContentView: View {
             Text("Hello, world!")
         }
         .padding()
+        .frame(minWidth: 1280, minHeight: 720)
     }
 }
 

@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8A29F79329820171003E0767 /* CompareEncodeValue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A29F79229820171003E0767 /* CompareEncodeValue.swift */; };
+		8A29F795298203DD003E0767 /* CompareDecodedValue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A29F794298203DD003E0767 /* CompareDecodedValue.swift */; };
 		8AA3628F2982000C00219C0A /* Compare_UrlApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AA3628E2982000C00219C0A /* Compare_UrlApp.swift */; };
 		8AA362912982000C00219C0A /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AA362902982000C00219C0A /* ContentView.swift */; };
 		8AA362932982000C00219C0A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8AA362922982000C00219C0A /* Assets.xcassets */; };
@@ -34,6 +36,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		8A29F79229820171003E0767 /* CompareEncodeValue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompareEncodeValue.swift; sourceTree = "<group>"; };
+		8A29F794298203DD003E0767 /* CompareDecodedValue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompareDecodedValue.swift; sourceTree = "<group>"; };
 		8AA3628B2982000C00219C0A /* Compare Url.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Compare Url.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		8AA3628E2982000C00219C0A /* Compare_UrlApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Compare_UrlApp.swift; sourceTree = "<group>"; };
 		8AA362902982000C00219C0A /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -72,6 +76,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		8A29F7902982014B003E0767 /* Decoding */ = {
+			isa = PBXGroup;
+			children = (
+				8A29F79229820171003E0767 /* CompareEncodeValue.swift */,
+				8A29F794298203DD003E0767 /* CompareDecodedValue.swift */,
+			);
+			path = Decoding;
+			sourceTree = "<group>";
+		};
+		8A29F79129820159003E0767 /* Compare */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Compare;
+			sourceTree = "<group>";
+		};
 		8AA362822982000B00219C0A = {
 			isa = PBXGroup;
 			children = (
@@ -95,6 +115,8 @@
 		8AA3628D2982000C00219C0A /* Compare Url */ = {
 			isa = PBXGroup;
 			children = (
+				8A29F79129820159003E0767 /* Compare */,
+				8A29F7902982014B003E0767 /* Decoding */,
 				8AA3628E2982000C00219C0A /* Compare_UrlApp.swift */,
 				8AA362902982000C00219C0A /* ContentView.swift */,
 				8AA362922982000C00219C0A /* Assets.xcassets */,
@@ -259,7 +281,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8A29F795298203DD003E0767 /* CompareDecodedValue.swift in Sources */,
 				8AA362912982000C00219C0A /* ContentView.swift in Sources */,
+				8A29F79329820171003E0767 /* CompareEncodeValue.swift in Sources */,
 				8AA3628F2982000C00219C0A /* Compare_UrlApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
