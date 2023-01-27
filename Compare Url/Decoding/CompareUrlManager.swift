@@ -19,7 +19,55 @@ public class CompareUrlManager {
     }
     
     func compareUrl(firstUrl: String, secondUrl: String) -> [String] {
-        return []
+        var results: [String] = []
+        let firstUrlQueries = firstUrl.split(separator: "?")[1]
+        let secondUrlQueries = secondUrl.split(separator: "?")[1]
+        
+        let firstLinkQueries = firstUrlQueries.split(separator: "&")
+        let secondLinkQueries = secondUrlQueries.split(separator: "&")
+        
+        firstLinkQueries.forEach { item in
+            let queryFragments = item.split(separator: "=")
+            let key = queryFragments[0].trimmingCharacters(in: .whitespacesAndNewlines)
+            var value = ""
+            if queryFragments.count > 1 {
+                value = queryFragments[1].trimmingCharacters(in: .whitespacesAndNewlines)
+            }
+            
+            var isKeyFound: Bool = false
+            var targetValue: String = ""
+            secondLinkQueries.forEach { secondItem in
+                let secondQueryFragments = secondItem.split(separator: "=")
+                let secondKey = secondQueryFragments[0].trimmingCharacters(in: .whitespacesAndNewlines)
+                var secondValue = ""
+                if secondQueryFragments.count > 1 {
+                    secondValue = secondQueryFragments[1].trimmingCharacters(in: .whitespacesAndNewlines)
+                } else {
+                    secondValue = ""
+                }
+
+                if key == secondKey {
+                    isKeyFound = true
+                    targetValue = secondValue
+                }
+            }
+            
+            if isKeyFound && targetValue != value {
+                if targetValue.isEmpty {
+                    targetValue = "Empty"
+                }
+                results.append("\(key) -- Diff Values : [1]: \(value), [2]: \(targetValue)")
+            }
+            
+            if isKeyFound == false {
+                if targetValue.isEmpty {
+                    targetValue = "Empty"
+                }
+                results.append("\(key) -- Not Found in Second Request")
+            }
+        }
+        
+        return results
     }
     
     private func assignEncodedToDecodedKeys(url: String) -> String {

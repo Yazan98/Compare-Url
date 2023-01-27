@@ -90,12 +90,11 @@ struct ContentView: View {
                 }
             }
             
-            LazyVStack() {
+            LazyVStack(alignment: .leading) {
                 ForEach(diffList, id: \.self) { item in
                     Text(item)
                 }
             }
-            .frame(width: .infinity, height: 350)
             .padding()
             
             Spacer()

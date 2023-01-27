@@ -27,7 +27,7 @@ public enum CompareEncodeValue: String, CustomStringConvertible {
     case Equal = "%3D" // =
     case QuestionMark = "%3F" // ?
     case At = "%40" // @
-    case LeftBracket = "$5B" // [
+    case LeftBracket = "%5B" // [
     case RightBracket = "%5D" // ]
 
     public var description: String {
