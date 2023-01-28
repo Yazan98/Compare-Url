@@ -72,7 +72,6 @@ public class CompareUrlManager {
     
     private func assignEncodedToDecodedKeys(url: String) -> String {
         var decodedString = url
-        decodedString = decodedString.replacingOccurrences(of: CompareEncodeValue.Space.rawValue, with: CompareDecodedValue.Space.rawValue)
         decodedString = decodedString.replacingOccurrences(of: CompareEncodeValue.ExclamationMark.rawValue, with: CompareDecodedValue.ExclamationMark.rawValue)
         decodedString = decodedString.replacingOccurrences(of: CompareEncodeValue.DoubleQuote.rawValue, with: CompareDecodedValue.DoubleQuote.rawValue)
         decodedString = decodedString.replacingOccurrences(of: CompareEncodeValue.Hash.rawValue, with: CompareDecodedValue.Hash.rawValue)
@@ -93,12 +92,13 @@ public class CompareUrlManager {
         decodedString = decodedString.replacingOccurrences(of: CompareEncodeValue.At.rawValue, with: CompareDecodedValue.At.rawValue)
         decodedString = decodedString.replacingOccurrences(of: CompareEncodeValue.LeftBracket.rawValue, with: CompareDecodedValue.LeftBracket.rawValue)
         decodedString = decodedString.replacingOccurrences(of: CompareEncodeValue.RightBracket.rawValue, with: CompareDecodedValue.RightBracket.rawValue)
+        decodedString = decodedString.replacingOccurrences(of: CompareEncodeValue.Space.rawValue, with: CompareDecodedValue.Space.rawValue)
+        decodedString = decodedString.trimmingCharacters(in: .whitespacesAndNewlines)
         return decodedString
     }
     
     private func assignDecodedToEncodedKeys(url: String) -> String {
         var encodedString = url
-        encodedString = encodedString.replacingOccurrences(of: CompareDecodedValue.Space.rawValue, with: CompareEncodeValue.Space.rawValue)
         encodedString = encodedString.replacingOccurrences(of: CompareDecodedValue.ExclamationMark.rawValue, with: CompareEncodeValue.ExclamationMark.rawValue)
         encodedString = encodedString.replacingOccurrences(of: CompareDecodedValue.DoubleQuote.rawValue, with: CompareEncodeValue.DoubleQuote.rawValue)
         encodedString = encodedString.replacingOccurrences(of: CompareDecodedValue.Hash.rawValue, with: CompareEncodeValue.Hash.rawValue)
@@ -119,6 +119,8 @@ public class CompareUrlManager {
         encodedString = encodedString.replacingOccurrences(of: CompareDecodedValue.At.rawValue, with: CompareEncodeValue.At.rawValue)
         encodedString = encodedString.replacingOccurrences(of: CompareDecodedValue.LeftBracket.rawValue, with: CompareEncodeValue.LeftBracket.rawValue)
         encodedString = encodedString.replacingOccurrences(of: CompareDecodedValue.RightBracket.rawValue, with: CompareEncodeValue.RightBracket.rawValue)
+        encodedString = encodedString.replacingOccurrences(of: CompareDecodedValue.Space.rawValue, with: CompareEncodeValue.Space.rawValue)
+        encodedString = encodedString.trimmingCharacters(in: .whitespacesAndNewlines)
         return encodedString
     }
     

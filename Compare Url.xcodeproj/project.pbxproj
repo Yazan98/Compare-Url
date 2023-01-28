@@ -88,13 +88,6 @@
 			path = Decoding;
 			sourceTree = "<group>";
 		};
-		8A29F79129820159003E0767 /* Compare */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Compare;
-			sourceTree = "<group>";
-		};
 		8AA362822982000B00219C0A = {
 			isa = PBXGroup;
 			children = (
@@ -118,7 +111,6 @@
 		8AA3628D2982000C00219C0A /* Compare Url */ = {
 			isa = PBXGroup;
 			children = (
-				8A29F79129820159003E0767 /* Compare */,
 				8A29F7902982014B003E0767 /* Decoding */,
 				8AA3628E2982000C00219C0A /* Compare_UrlApp.swift */,
 				8AA362902982000C00219C0A /* ContentView.swift */,
